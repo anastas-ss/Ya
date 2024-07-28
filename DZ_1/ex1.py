@@ -1,5 +1,5 @@
 #A - кондиционер
-type_work = ["freeze", "heat", "auto", "fun"]
+type_work = ["freeze", "heat", "auto", "fan"]
 t_room, t_cond = map(int, input().split())
 ttype = input()
 if ttype == type_work[3]:
