@@ -7,14 +7,13 @@ def sravni(tp_base, tp_new):
 
 def clean(mystr):
     str_clean = ""
-    for i in mystr:
-        if i >= '0' and i <= '9':
-            str_clean += i
-    if len(str_clean) < 11:
-        if str_clean[0] == '7' or str_clean[0] == '8':
-            str_clean = str_clean[0] + '495' + str_clean[1:]
-        else:
-            str_clean = '7' + '495' + str_clean
+    str_clean = mystr.replace("-", "").replace("+", "").replace("(", "").replace(")", "")
+    if len(str_clean) == 7:
+        str_clean = '7495' + str_clean
+    elif len(str_clean) == 8:
+        str_clean = str_clean[0] + '495' + str_clean[1:]
+    elif len(str_clean) == 10:
+        str_clean = '7' + str_clean
     return str_clean
 
 tp_new = clean(input())
